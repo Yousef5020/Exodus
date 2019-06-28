@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="15dp"
+        android:layout_margin="20dp"
         android:fontFamily="@font/roboto_slab_bold"
         android:text="@string/sign_up"
         android:textColor="#D5696969"
@@ -18,7 +18,7 @@
         android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:background="@drawable/edittext_background"
         android:drawableStart="@drawable/user_icon"
         android:drawablePadding="10dp"
@@ -28,13 +28,14 @@
         android:padding="15dp"
         android:textColor="#D5000000"
         android:textColorHint="#C4807C7C"
-        android:autofillHints="@string/user_name"/>
+        android:autofillHints="@string/user_name"
+        android:drawableLeft="@drawable/user_icon" />
 
     <EditText
         android:id="@+id/e-mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:background="@drawable/edittext_background"
         android:drawableStart="@drawable/e_mail_icon"
         android:drawablePadding="10dp"
@@ -44,13 +45,14 @@
         android:padding="15dp"
         android:textColor="#D5000000"
         android:textColorHint="#C4807C7C"
-        android:autofillHints="@string/e_mail" />
+        android:autofillHints="@string/e_mail"
+        android:drawableLeft="@drawable/e_mail_icon" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:background="@drawable/edittext_background"
         android:drawableStart="@drawable/password_icon"
         android:drawablePadding="10dp"
@@ -60,13 +62,14 @@
         android:padding="15dp"
         android:textColor="#D5000000"
         android:textColorHint="#C4807C7C"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:drawableLeft="@drawable/password_icon" />
 
     <EditText
         android:id="@+id/re_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:background="@drawable/edittext_background"
         android:drawableStart="@drawable/password_icon"
         android:drawablePadding="10dp"
@@ -76,7 +79,8 @@
         android:padding="15dp"
         android:textColor="#D5000000"
         android:textColorHint="#C4807C7C"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:drawableLeft="@drawable/password_icon" />
 
 
     <Button

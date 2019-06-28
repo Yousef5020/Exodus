@@ -8,4 +8,7 @@
     <string name="password">Password</string>
     <string name="user_name">User Name</string>
     <string name="re_password">Re-type Password</string>
+    <string name="home_title">Explore</string>
+    <string name="search">search</string>
+    <string name="photo_desc">trip ,vote or agency photo</string>
 </resources>
