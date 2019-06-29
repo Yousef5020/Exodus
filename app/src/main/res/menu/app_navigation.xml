@@ -3,14 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/home"
-        android:title=""
-        app:showAsAction="ifRoom" />
+    android:id="@+id/nav_home"
+    android:icon="@drawable/home"
+    android:title="" />
+    <item
+        android:id="@+id/nav_agency"
+        android:icon="@drawable/agency_ic"
+        android:title="" />
+    <item
+        android:id="@+id/nav_trips"
+        android:icon="@drawable/trips_ic"
+        android:title="" />
     <item
         android:id="@+id/nav_user"
         android:icon="@drawable/user_setting"
-        android:title=""
-        app:showAsAction="ifRoom" />
+        android:title="" />
 
 </menu>

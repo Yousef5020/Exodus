@@ -28,12 +28,12 @@
             android:gravity="center"
             android:text="@string/home_title"
             android:textColor="@android:color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/filter_background"/>
     </LinearLayout>
 
@@ -63,9 +63,7 @@
         android:layout_below="@id/search"
         android:layout_above="@id/nav"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
+        android:layout_height="match_parent"/>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav"
