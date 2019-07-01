@@ -7,17 +7,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
 
-public class home extends android.support.v4.app.Fragment {
+public class home extends android.support.v4.app.Fragment implements vote_Adapter.onRecyclerClickListener {
 
     public home() {
 
     }
+    ArrayList<trip_recycler> arrayList;
+
     UniversalImageLoader universalImageLoader;
 
     private RecyclerView votes;
@@ -39,11 +42,14 @@ public class home extends android.support.v4.app.Fragment {
 
         trips = view.findViewById(R.id.most_rec_trips);
         triplm = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
-        tripad = new vote_Adapter(test() ,universalImageLoader);
+        tripad = new vote_Adapter(test() ,universalImageLoader, this);
 
         agencies = view.findViewById(R.id.most_followed_agen);
         agencylm = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
-        tripad = new vote_Adapter(test(),universalImageLoader);
+
+        arrayList = test();
+
+        tripad = new vote_Adapter(arrayList,universalImageLoader, this);
 
         trips.setHasFixedSize(true);
         trips.setLayoutManager(triplm);
@@ -72,5 +78,10 @@ public class home extends android.support.v4.app.Fragment {
     private void initImageLoader(){
         universalImageLoader = new UniversalImageLoader(getActivity());
         ImageLoader.getInstance().init(universalImageLoader.getConfig());
+    }
+
+    @Override
+    public void onClick(int i) {
+        Toast.makeText(getContext(),arrayList.get(i).getTitle(),Toast.LENGTH_LONG).show();
     }
 }

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 public class FilterFragment extends android.support.v4.app.Fragment {
 
     public FilterFragment() {
-        
+
     }
 
     @Override

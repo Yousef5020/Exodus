@@ -34,6 +34,7 @@
         <Button
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:onClick="show_filter"
             android:background="@drawable/filter_background"/>
     </LinearLayout>
 
@@ -71,6 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:itemIconTint="@color/nav_color"
+        android:onClick="nav_fragment"
         app:menu="@menu/app_navigation" />
 
 </RelativeLayout>

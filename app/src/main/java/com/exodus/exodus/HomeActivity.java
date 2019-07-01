@@ -3,11 +3,11 @@ package com.exodus.exodus;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -29,24 +29,12 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_home:
                         fragment = new home();
                         switchFragment(fragment);
-                        System.out.println("*********************************");
-                        System.out.println("Home");
-                        System.out.println("*********************************");
                         break;
                     case R.id.nav_agency:
-                        System.out.println("*********************************");
-                        System.out.println("Agencies");
-                        System.out.println("*********************************");
                         break;
                     case R.id.nav_trips:
-                        System.out.println("*********************************");
-                        System.out.println("Trips");
-                        System.out.println("*********************************");
                         break;
                     case R.id.nav_user:
-                        System.out.println("*********************************");
-                        System.out.println("User");
-                        System.out.println("*********************************");
                         break;
                 }
             }
@@ -56,5 +44,13 @@ public class HomeActivity extends AppCompatActivity {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_frame, fragment);
         fragmentTransaction.commit();
+    }
+
+    public void show_filter(View view) {
+        fragment = new FilterFragment();
+        switchFragment(fragment);
+    }
+
+    public void nav_fragment(View view) {
     }
 }

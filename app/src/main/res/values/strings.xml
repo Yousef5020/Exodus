@@ -14,4 +14,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filters">Filters</string>
+    <string name="city">City</string>
+    <string name="price">Price</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="filter">Filter</string>
+    <string name="clear_filters">Clear Filters</string>
 </resources>

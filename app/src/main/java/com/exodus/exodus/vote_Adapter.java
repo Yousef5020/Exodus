@@ -15,16 +15,19 @@ class vote_Adapter extends RecyclerView.Adapter<vote_Adapter.ViewHolder> {
 
     private ArrayList<trip_recycler> list;
     private UniversalImageLoader loader;
-    vote_Adapter(ArrayList<trip_recycler> list, UniversalImageLoader loader) {
+    private onRecyclerClickListener listener;
+
+    vote_Adapter(ArrayList<trip_recycler> list, UniversalImageLoader loader, onRecyclerClickListener listener) {
         this.list = list;
         this.loader = loader;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public vote_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_view,viewGroup,false);
-        return new ViewHolder(v);
+        return new ViewHolder(v, listener);
     }
 
     @Override
@@ -38,15 +41,29 @@ class vote_Adapter extends RecyclerView.Adapter<vote_Adapter.ViewHolder> {
         return list.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView image;
         TextView text;
 
-        ViewHolder(@NonNull View itemView) {
+        onRecyclerClickListener listener;
+
+        public ViewHolder(@NonNull View itemView, onRecyclerClickListener listener) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
             text = itemView.findViewById(R.id.text);
+            this.listener = listener;
+
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            listener.onClick(getAdapterPosition());
+        }
+    }
+
+    public interface onRecyclerClickListener {
+        void onClick(int i);
     }
 }

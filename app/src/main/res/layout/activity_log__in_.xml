@@ -19,7 +19,7 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_background"
@@ -35,7 +35,7 @@
         android:drawableLeft="@drawable/user_icon" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/etpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_background"
