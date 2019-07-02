@@ -11,15 +11,15 @@ public class LoginResponse {
         this.user = user;
     }
 
-    public boolean isValid() {
+    boolean isValid() {
         return valid;
     }
 
-    public String getMessage() {
+    String getMessage() {
         return message;
     }
 
-    public User getUser() {
+    User getUser() {
         return user;
     }
 }

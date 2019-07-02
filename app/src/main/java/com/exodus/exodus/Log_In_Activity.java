@@ -68,7 +68,8 @@ public class Log_In_Activity extends DialogFragment {
             public void onResponse(@NonNull Call<LoginResponse> call, @NonNull Response<LoginResponse> response) {
                 LoginResponse respon = response.body();
 
-                if (respon != null){
+                if (response.isSuccessful()){
+                    assert respon != null;
                     if (respon.isValid()){
                         SharedPreferenceManager.getInstance(getContext()).saveUser(respon.getUser());
 
@@ -80,7 +81,7 @@ public class Log_In_Activity extends DialogFragment {
                         Toast.makeText(getContext(),respon.getMessage(),Toast.LENGTH_LONG).show();
                 }
                 else
-                    Toast.makeText(getContext(),"User not found",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Connection Failed",Toast.LENGTH_SHORT).show();
             }
 
             @Override

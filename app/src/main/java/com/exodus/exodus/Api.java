@@ -12,13 +12,18 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface Api {
 
     @GET("trips")
-    Call<List<Trip>> getTrips();
+    Call<List<trips_recycler>> getTrips();
+
+    @GET("home_trips")
+    Call<List<home_trips>> getHomeTrips();
+
+    @GET("most_going")
+    Call<List<home_trips>> getMostGoingTrips();
 
     @FormUrlEncoded
     @POST("users/")

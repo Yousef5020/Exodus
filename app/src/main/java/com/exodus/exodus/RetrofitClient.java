@@ -3,10 +3,10 @@ package com.exodus.exodus;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClient {
-    private static final String BASE_URL = "http://192.168.1.28:8000/api/";
+class RetrofitClient {
+    private static final String BASE_URL = "http://192.168.1.108:8000/api/";
 
-    public static RetrofitClient retrofitClient;
+    private static RetrofitClient retrofitClient;
     private Retrofit retrofit;
 
     private RetrofitClient() {
@@ -16,16 +16,15 @@ public class RetrofitClient {
                 .build();
     }
 
-    public static synchronized RetrofitClient getInstance() {
-        if(retrofitClient == null)
-        {
+    static synchronized RetrofitClient getInstance() {
+        if (retrofitClient == null) {
             retrofitClient = new RetrofitClient();
         }
 
         return retrofitClient;
     }
 
-    public Api getApi() {
-        return  retrofit.create(Api.class);
+    Api getApi() {
+        return retrofit.create(Api.class);
     }
 }

@@ -12,23 +12,26 @@ import android.widget.Toast;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
-public class home extends android.support.v4.app.Fragment implements vote_Adapter.onRecyclerClickListener {
+public class home extends android.support.v4.app.Fragment implements trip_Adapter.onRecyclerClickListener {
 
     public home() {
 
     }
-    ArrayList<trip_recycler> arrayList;
 
     UniversalImageLoader universalImageLoader;
 
+    trip_Adapter.onRecyclerClickListener listener = this;
+
     private RecyclerView votes;
     private RecyclerView trips;
-    private RecyclerView agencies;
-
-    private RecyclerView.LayoutManager triplm;
-    private RecyclerView.LayoutManager agencylm;
+    private RecyclerView mostTrip;
 
     private RecyclerView.Adapter tripad;
 
@@ -41,38 +44,69 @@ public class home extends android.support.v4.app.Fragment implements vote_Adapte
         initImageLoader();
 
         trips = view.findViewById(R.id.most_rec_trips);
-        triplm = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
-        tripad = new vote_Adapter(test() ,universalImageLoader, this);
+        RecyclerView.LayoutManager triplm = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        agencies = view.findViewById(R.id.most_followed_agen);
-        agencylm = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
+        mostTrip = view.findViewById(R.id.most_going_trips);
+        RecyclerView.LayoutManager mostTripLM = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        arrayList = test();
-
-        tripad = new vote_Adapter(arrayList,universalImageLoader, this);
+        getTrips();
 
         trips.setHasFixedSize(true);
         trips.setLayoutManager(triplm);
-        trips.setAdapter(tripad);
 
-        agencies.setHasFixedSize(true);
-        agencies.setLayoutManager(agencylm);
-        agencies.setAdapter(tripad);
+        getMostGoingTrips();
+
+        mostTrip.setHasFixedSize(true);
+        mostTrip.setLayoutManager(mostTripLM);
+
 
         return view;
     }
-    ArrayList<trip_recycler> test(){
-        ArrayList<trip_recycler> te = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            trip_recycler t = new trip_recycler();
-            String urlString = "https://arabacademy-u8hapu3mdn.netdna-ssl.com/wp-content/uploads/2016/08/alexandria-1.jpg";
 
-            t.setImgURL(urlString);
-            t.setTitle("Trip "+(i+1));
+    static List<home_trips> home_trips = new ArrayList<>();
 
-            te.add(t);
-        }
-        return te;
+    void getTrips(){
+
+        Call<List<home_trips>> call = RetrofitClient.getInstance().getApi().getHomeTrips();
+
+        call.enqueue(new Callback<List<home_trips>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<home_trips>> call, @NonNull Response<List<home_trips>> response) {
+                if (response.isSuccessful()){
+                    home_trips = response.body();
+
+                    tripad = new trip_Adapter(home_trips,universalImageLoader, listener);
+                    trips.setAdapter(tripad);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<home_trips>> call, @NonNull Throwable t) {
+                Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    void getMostGoingTrips(){
+
+        Call<List<home_trips>> call = RetrofitClient.getInstance().getApi().getMostGoingTrips();
+
+        call.enqueue(new Callback<List<home_trips>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<home_trips>> call, @NonNull Response<List<home_trips>> response) {
+                if (response.isSuccessful()){
+                    home_trips = response.body();
+
+                    tripad = new trip_Adapter(home_trips,universalImageLoader, listener);
+                    mostTrip.setAdapter(tripad);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<List<home_trips>> call, @NonNull Throwable t) {
+                Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void initImageLoader(){
@@ -82,6 +116,6 @@ public class home extends android.support.v4.app.Fragment implements vote_Adapte
 
     @Override
     public void onClick(int i) {
-        Toast.makeText(getContext(),arrayList.get(i).getTitle(),Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(),home_trips.get(i).getTrip(),Toast.LENGTH_LONG).show();
     }
 }

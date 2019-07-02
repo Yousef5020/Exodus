@@ -48,7 +48,7 @@
 
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/most_followed_agen"
+            android:id="@+id/most_going_trips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

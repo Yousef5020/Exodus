@@ -48,7 +48,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/edittext_background"
         android:drawableStart="@drawable/search_ic"
         android:drawableLeft="@drawable/search_ic"
@@ -61,10 +61,10 @@
 
     <FrameLayout
         android:id="@+id/fragment_frame"
-        android:layout_below="@id/search"
-        android:layout_above="@id/nav"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav"
+        android:layout_below="@id/search" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav"

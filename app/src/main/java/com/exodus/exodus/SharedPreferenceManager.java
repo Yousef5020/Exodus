@@ -14,7 +14,7 @@ public class SharedPreferenceManager {
         this.mcontext = context;
     }
 
-    public static synchronized SharedPreferenceManager getInstance(Context context) {
+    static synchronized SharedPreferenceManager getInstance(Context context) {
         if (msharedPreferenceManager == null) {
             msharedPreferenceManager = new SharedPreferenceManager(context);
         }
@@ -22,7 +22,7 @@ public class SharedPreferenceManager {
         return msharedPreferenceManager;
     }
 
-    public void saveUser(User user) {
+    void saveUser(User user) {
         SharedPreferences sharedPreferences = mcontext.getSharedPreferences(SHARED_PREFERNCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -36,7 +36,7 @@ public class SharedPreferenceManager {
 
     }
 
-    public boolean isLoggedIn() {
+    boolean isLoggedIn() {
 
         SharedPreferences sharedPreferences = mcontext.getSharedPreferences(SHARED_PREFERNCES_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getInt("id", -1) != -1;

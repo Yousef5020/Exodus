@@ -7,9 +7,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
-public class HomeActivity extends AppCompatActivity {
+public class Trip_AgencyActivity extends AppCompatActivity {
 
     BottomNavigationView bnv;
 
@@ -19,9 +18,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_trip__agency);
 
-        bnv = findViewById(R.id.nav);
+        bnv = findViewById(R.id.de_nav);
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -43,17 +42,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
     private void switchFragment(Fragment fragment) {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_frame, fragment);
         fragmentTransaction.commit();
-    }
-
-    public void show_filter(View view) {
-        fragment = new FilterFragment();
-        switchFragment(fragment);
-    }
-
-    public void nav_fragment(View view) {
     }
 }

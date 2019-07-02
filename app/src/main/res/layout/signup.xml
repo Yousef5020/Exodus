@@ -1,101 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:fontFamily="@font/roboto_slab_bold"
-        android:text="@string/sign_up"
-        android:textColor="#D5696969"
-        android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/user_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/user_icon"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="@string/user_name"
-        android:inputType="textAutoComplete"
-        android:padding="15dp"
-        android:textColor="#D5000000"
-        android:textColorHint="#C4807C7C"
-        android:autofillHints="@string/user_name"
-        android:drawableLeft="@drawable/user_icon" />
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="@string/sign_up"
+            android:textColor="#D5696969"
+            android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/e-mail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/e_mail_icon"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="@string/e_mail"
-        android:inputType="textEmailAddress"
-        android:padding="15dp"
-        android:textColor="#D5000000"
-        android:textColorHint="#C4807C7C"
-        android:autofillHints="@string/e_mail"
-        android:drawableLeft="@drawable/e_mail_icon" />
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/user_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/user_name"
+            android:inputType="textAutoComplete"
+            android:padding="15dp"
+            android:textColor="#D5000000"
+            android:textColorHint="#C4807C7C"
+            android:autofillHints="@string/user_name"
+            android:drawableLeft="@drawable/user_icon" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/password_icon"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColor="#D5000000"
-        android:textColorHint="#C4807C7C"
-        android:importantForAutofill="no"
-        android:drawableLeft="@drawable/password_icon" />
+        <EditText
+            android:id="@+id/e-mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/e_mail_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/e_mail"
+            android:inputType="textEmailAddress"
+            android:padding="15dp"
+            android:textColor="#D5000000"
+            android:textColorHint="#C4807C7C"
+            android:autofillHints="@string/e_mail"
+            android:drawableLeft="@drawable/e_mail_icon" />
 
-    <EditText
-        android:id="@+id/re_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/edittext_background"
-        android:drawableStart="@drawable/password_icon"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="@string/re_password"
-        android:inputType="textPassword"
-        android:padding="15dp"
-        android:textColor="#D5000000"
-        android:textColorHint="#C4807C7C"
-        android:importantForAutofill="no"
-        android:drawableLeft="@drawable/password_icon" />
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/e_mail_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:padding="15dp"
+            android:textColor="#D5000000"
+            android:textColorHint="#C4807C7C"
+            android:autofillHints="@string/phone"
+            android:drawableLeft="@drawable/e_mail_icon" />
+
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/e_mail_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/city"
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColor="#D5000000"
+            android:textColorHint="#C4807C7C"
+            android:autofillHints="@string/city"
+            android:drawableLeft="@drawable/e_mail_icon" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/password_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColor="#D5000000"
+            android:textColorHint="#C4807C7C"
+            android:importantForAutofill="no"
+            android:drawableLeft="@drawable/password_icon" />
+
+        <EditText
+            android:id="@+id/re_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/password_icon"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/re_password"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColor="#D5000000"
+            android:textColorHint="#C4807C7C"
+            android:importantForAutofill="no"
+            android:drawableLeft="@drawable/password_icon" />
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/login_dialog_background"
-        android:fontFamily="@font/roboto_slab_bold"
-        android:padding="15dp"
-        android:text="@string/login"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-</LinearLayout>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/login_dialog_background"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:padding="15dp"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+</ScrollView>
