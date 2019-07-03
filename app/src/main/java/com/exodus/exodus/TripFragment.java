@@ -1,11 +1,13 @@
 package com.exodus.exodus;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +34,8 @@ public class TripFragment extends Fragment {
     TextView trip_name, trip_agency_name, trip_price, trip_duration, trip_date,
             trip_description, trip_from, trip_to, trip_views, trip_deadline;
 
+    Button going;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +52,20 @@ public class TripFragment extends Fragment {
         trip_to = v.findViewById(R.id.trip_to);
         trip_views = v.findViewById(R.id.trip_views);
         trip_deadline = v.findViewById(R.id.trip_deadline);
+        going = v.findViewById(R.id.btn_going);
+
+        final Drawable going_d = getResources().getDrawable( R.color.app_color );
+        final Drawable notgoing = getResources().getDrawable( R.color.home_btn );
+        going.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (going.getBackground() == going_d){
+                    going.setBackground(notgoing);
+                }else {
+                    going.setBackground(going_d);
+                }
+            }
+        });
 
         initImageLoader();
 
