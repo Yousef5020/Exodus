@@ -20,6 +20,13 @@ public class Trip_AgencyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip__agency);
 
+        String t = getIntent().getStringExtra("type");
+
+        if (t.equals("trip")){
+            fragment = new TripFragment();
+            switchFragment(fragment);
+        }
+
         bnv = findViewById(R.id.de_nav);
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -45,7 +52,7 @@ public class Trip_AgencyActivity extends AppCompatActivity {
 
     private void switchFragment(Fragment fragment) {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_frame, fragment);
+        fragmentTransaction.replace(R.id.de_fragment, fragment);
         fragmentTransaction.commit();
     }
 }

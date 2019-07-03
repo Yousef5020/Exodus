@@ -2,6 +2,8 @@ package com.exodus.exodus;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,11 +21,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class TripsFragment extends android.support.v4.app.Fragment implements trips_Adapter.onRecyclerClickListener{
+public class TripsFragment extends Fragment implements trips_Adapter.onRecyclerClickListener{
 
     public TripsFragment() {
         // Required empty public constructor
     }
+
+    Fragment fragment = null;
+    FragmentTransaction fragmentTransaction;
 
     UniversalImageLoader universalImageLoader;
 
@@ -85,6 +90,16 @@ public class TripsFragment extends android.support.v4.app.Fragment implements tr
 
 
     public void onClick(int i) {
-        Toast.makeText(getContext(),trips.get(i).getTrip(),Toast.LENGTH_LONG).show();
+        getActivity().getIntent().putExtra("trip_id",trips.get(i).getTrip());
+
+        fragment = new TripFragment();
+
+        switchFragment(fragment);
+    }
+
+    private void switchFragment(Fragment fragment) {
+        fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_frame, fragment);
+        fragmentTransaction.addToBackStack(null).commit();
     }
 }

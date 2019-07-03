@@ -19,6 +19,9 @@ public interface Api {
     @GET("trips")
     Call<List<trips_recycler>> getTrips();
 
+    @GET("trip")
+    Call<List<Trip>> getTrip();
+
     @GET("home_trips")
     Call<List<home_trips>> getHomeTrips();
 
@@ -47,7 +50,7 @@ public interface Api {
     @FormUrlEncoded
     @PATCH("user/{id}")
     Call<LoginResponse> updateUser(
-            @Field("id") int id,
+            @Path("id") int id,
             @Field("name") String name,
             @Field("e_mail") String email,
             @Field("phone") String phone,
@@ -59,7 +62,7 @@ public interface Api {
     Call<DefaultResponse> updatePassword(
             @Field("password") String currentPassword,
             @Field("password") String newPassword,
-            @Field("id") int id
+            @Path("id") int id
 
     );
 

@@ -2,6 +2,8 @@ package com.exodus.exodus;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,6 +26,9 @@ public class home extends android.support.v4.app.Fragment implements trip_Adapte
     public home() {
 
     }
+
+    Fragment fragment = null;
+    FragmentTransaction fragmentTransaction;
 
     UniversalImageLoader universalImageLoader;
 
@@ -116,6 +121,18 @@ public class home extends android.support.v4.app.Fragment implements trip_Adapte
 
     @Override
     public void onClick(int i) {
-        Toast.makeText(getContext(),home_trips.get(i).getTrip(),Toast.LENGTH_LONG).show();
+        if (i<home_trips.size()){
+            getActivity().getIntent().putExtra("trip_id",home_trips.get(i).getTrip());
+
+            fragment = new TripFragment();
+
+            switchFragment(fragment);
+        }
+    }
+
+    private void switchFragment(Fragment fragment) {
+        fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_frame, fragment);
+        fragmentTransaction.addToBackStack(null).commit();
     }
 }
